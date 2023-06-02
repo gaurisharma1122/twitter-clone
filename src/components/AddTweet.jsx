@@ -2,17 +2,17 @@ import React, { useState } from 'react'
 import { useAppContext } from '../context/context';
 
 const AddTweet = () => {
-    const { tweets, addTweet }= useAppContext();
+    const { tweets, addTweet } = useAppContext();
     const [firstName, setFirstName] = useState('');
     const [userName, setUserName] = useState('');
     const [tweet, setTweet] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const todayDate= new Date();
-        const date= `${todayDate.getFullYear()}-${todayDate.getMonth()<10?'0'+ todayDate.getMonth():todayDate.getMonth()}-${todayDate.getDate()<10?'0'+todayDate.getDate():todayDate.getDate()}`;
-        const tweetObj= {
-            id: tweets.length+1,
+        const todayDate = new Date();
+        const date = `${todayDate.getFullYear()}-${todayDate.getMonth() < 10 ? '0' + todayDate.getMonth() : todayDate.getMonth()}-${todayDate.getDate() < 10 ? '0' + todayDate.getDate() : todayDate.getDate()}`;
+        const tweetObj = {
+            id: tweets.length + 1,
             userName,
             date,
             tweet,
@@ -20,7 +20,7 @@ const AddTweet = () => {
             numberOfComments: 0,
             firstName
         };
-        if(userName.trim().length>1 && firstName.trim().length>1 && tweet.trim().length>1){
+        if (userName.trim().length > 1 && firstName.trim().length > 1 && tweet.trim().length > 1) {
             addTweet(tweetObj);
         }
         setFirstName('');

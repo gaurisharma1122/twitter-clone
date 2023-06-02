@@ -13,7 +13,7 @@ const Right = () => {
     };
     const handleChange= (e)=>{
         setSearchQuery(e.target.value);
-        searchTweets(e.target.value)
+        searchTweets(e.target.value);
     }
 
     return (

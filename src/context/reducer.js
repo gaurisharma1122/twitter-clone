@@ -1,4 +1,4 @@
-import { ADD_TWEET, SET_CENTER_COMPONENT, TWEETS_ERROR, TWEETS_LOADING_BEGIN, TWEETS_LOADING_SUCCESS, PROFILE_LOADING_BEGIN, PROFILE_LOADING_SUCCESS, PROFILE_ERROR, DELETE_TWEET, EDIT_TWEET, SEARCH_TWEETS, LOGOUT,  } from "./actions";
+import { ADD_TWEET, SET_CENTER_COMPONENT, TWEETS_ERROR, TWEETS_LOADING_BEGIN, TWEETS_LOADING_SUCCESS, PROFILE_LOADING_BEGIN, PROFILE_LOADING_SUCCESS, PROFILE_ERROR, DELETE_TWEET, EDIT_TWEET, SEARCH_TWEETS, LOGOUT, } from "./actions";
 
 export const reducer = (state, action) => {
     switch (action.type) {
@@ -54,16 +54,16 @@ export const reducer = (state, action) => {
             }; break;
         case SEARCH_TWEETS:
             {
-                let searchResults= state.tweets.filter((item)=> {
-                    return action.payload.trim().length>0 && item.tweet.toLowerCase().includes(action.payload.toLowerCase());
+                let searchResults = state.tweets.filter((item) => {
+                    return action.payload.trim().length > 0 && item.tweet.toLowerCase().includes(action.payload.toLowerCase());
                 });
                 return { ...state, search_result: searchResults };
             }; break;
         case LOGOUT:
             {
-                return { ...state, search_result: []};
+                return { ...state, search_result: [] };
             }; break;
-        
-        
+
+
     }
 }
